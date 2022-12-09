@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Router } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import useFetch from "./hook/useFetch";
 import CatFact from "./components/CatFact";
@@ -39,9 +39,9 @@ function App() {
             <button onClick={fetchData}>click</button>
           </div>
         )}
-        <Route>
-          <Router path="/catfacts"  element={<CatFact/>}/>
-        </Route>
+        <Routes>
+          <Route path="/catfacts"  element={<CatFact/>}/>
+        </Routes>
       </div>
     </BrowserRouter>
   );
