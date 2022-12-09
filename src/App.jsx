@@ -31,9 +31,7 @@ function App() {
     <div className="App">
       {loading && <>loading...</>}
       {error === true && <>error</>}
-      
-      
-      {catFact &&<div>
+      {catFact &&<div className="container">
         <p>{catFact.fact}</p>
         <button onClick={fetchData}>click</button>
       </div> }
