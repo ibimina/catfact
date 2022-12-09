@@ -18,7 +18,7 @@ console.log(room)
         <div className="container">
           {loading && <>loading...</>}
           {error === true && <>error</>}
-          <Link to="/catfacts" className='link'>previous</Link>
+          <Link to="/catfacts" className='link'>previous fact</Link>
           <p className="fact"> {catFact.fact}</p>
           <button onClick={fetchData}>click</button>
         </div>
