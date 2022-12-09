@@ -1,6 +1,7 @@
+import { BrowserRouter, Route, Router } from "react-router-dom";
 import "./App.css";
 import useFetch from "./hook/useFetch";
-
+import CatFact from "./components/CatFact";
 function App() {
   const url = "https://catfact.ninja/fact";
   const { loading, error, catFact,  fetchData } = useFetch(url);
@@ -28,14 +29,21 @@ function App() {
   // }, [fac]);
 
   return (
-    <div className="App">
-      {loading && <>loading...</>}
-      {error === true && <>error</>}
-      {catFact &&<div className="container">
-        <p>{catFact.fact}</p>
-        <button onClick={fetchData}>click</button>
-      </div> }
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        {loading && <>loading...</>}
+        {error === true && <>error</>}
+        {catFact && (
+          <div className="container">
+            <p>{catFact.fact}</p>
+            <button onClick={fetchData}>click</button>
+          </div>
+        )}
+        <Route>
+          <Router path="/catfacts"  element={<CatFact/>}/>
+        </Route>
+      </div>
+    </BrowserRouter>
   );
 }
 
