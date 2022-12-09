@@ -14,7 +14,7 @@ export default function useFetch(url) {
       }
       const randomFact = await res.json();
       setIsLoading(false);
-      setCatFact(randomFact,new Date());
+      setCatFact({ ...randomFact, date: new Date() });
     } catch (error) {
       setIsLoading(false);
       setError("could not fetch data");

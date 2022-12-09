@@ -2,9 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import useFetch from "./hook/useFetch";
 import CatFact from "./components/CatFact";
+import Home from "./components/Home";
 function App() {
-  const url = "https://catfact.ninja/fact";
-  const { loading, error, catFact,  fetchData } = useFetch(url);
+
   //  const [fact, setFact] = useState([]);
   // setFact(...fact, { ...randomFact, date: new Date() });
   // const put = JSON.stringify(fact);
@@ -31,15 +31,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        {loading && <>loading...</>}
-        {error === true && <>error</>}
-        {catFact && (
-          <div className="container">
-            <p>{catFact.fact}</p>
-            <button onClick={fetchData}>click</button>
-          </div>
-        )}
+        
         <Routes>
+          <Route path="/" element={<Home/>} />
           <Route path="/catfacts"  element={<CatFact/>}/>
         </Routes>
       </div>

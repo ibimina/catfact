@@ -1,32 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
-export default function CatFact({ savedfact }) {
-//   const [factArray, setFactArray] = useState([]);
-//   // const storeData =localStorage.getItem("catfacts",   JSON.stringify(savedfact))
-//   let getData = localStorage.getItem("catfacts");
-//   getData = JSON.parse(getData);
-
-//   useEffect(() => {
-//     if (getData ) {
-//       setFactArray(getData, savedfact);
-//       const save = localStorage.setItem("catfacts", JSON.stringify(factArray));
-//       console.log(factArray);
-//     } else{
-//     const room=  [savedfact]
-//         setFactArray(...room);
-//     const rr=    localStorage.setItem("catfacts", JSON.stringify(factArray));
-//         // console.log(factArray)
-   
-//       // setFactArray(savedfact);
-//       // localStorage.setItem("catfacts", JSON.stringify(factArray));
-//     }
-//   }, [savedfact]);
-// console.log(savedfact,factArray)
+export default function CatFact() {
+  let getData = localStorage.getItem("catfacts");
+  let pard = JSON.parse(getData);
+  console.log(pard);
   return (
-    <ul>
-      <li key={savedfact.length}>
-        <p>{savedfact.fact}</p>
-      </li>
-    </ul>
+    <>
+    <Link to="/">home</Link>
+      <ul>
+        {pard &&
+          pard.map((cat) => 
+            <li key={cat.length}>
+              <p>{cat.fact}</p>
+              <p>heelo</p>
+            </li>
+          )}
+      </ul>
+    </>
   );
 }
