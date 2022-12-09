@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
 import "./App.css";
-import CatFact from "./components/CatFact";
 import useFetch from "./hook/useFetch";
 
 function App() {
@@ -33,10 +31,12 @@ function App() {
     <div className="App">
       {loading && <>loading...</>}
       {error === true && <>error</>}
-      {catFact && <p>{catFact.fact}</p>}
-
-      <button onClick={fetchData}>click</button>
-      <CatFact savedfact={catFact || []} />
+      
+      
+      {catFact &&<div>
+        <p>{catFact.fact}</p>
+        <button onClick={fetchData}>click</button>
+      </div> }
     </div>
   );
 }
