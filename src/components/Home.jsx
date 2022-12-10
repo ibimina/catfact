@@ -20,7 +20,7 @@ console.log(room)
           {error === true && <>error</>}
           <Link to="/catfacts" className='link'>previous fact</Link>
           <p className="fact"> {catFact.fact}</p>
-          <button onClick={fetchData}>click</button>
+          <button onClick={fetchData}>get facts</button>
         </div>
       )}
     </>
