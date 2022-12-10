@@ -2,18 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function CatFact() {
-  let getData = localStorage.getItem("catfacts");
-  let pard = JSON.parse(getData);
-  console.log(pard);
+  let getLocalstorageData = localStorage.getItem("catfacts");
+  let catFacts = JSON.parse(getLocalstorageData);
   return (
     <div className="prev_fact">
-    <Link to="/" className="home">home</Link>
+    <Link to="/" className="home link">home</Link>
       <ul className="list">
-        {pard &&
-          pard.map((cat) => 
+        {catFacts &&
+          catFacts.map((cat) => 
             <li key={cat.length}>
               <p>{cat.fact}</p>
-              <p>{new Date(cat.date).toDateString()}</p>
+              <p className="date">{new Date(cat.date).toDateString()}</p>
             </li>
           )}
       </ul>
