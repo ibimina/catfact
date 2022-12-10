@@ -6,17 +6,17 @@ export default function CatFact() {
   let pard = JSON.parse(getData);
   console.log(pard);
   return (
-    <>
-    <Link to="/">home</Link>
-      <ul>
+    <div className="prev_fact">
+    <Link to="/" className="home">home</Link>
+      <ul className="list">
         {pard &&
           pard.map((cat) => 
             <li key={cat.length}>
               <p>{cat.fact}</p>
-              <p>heelo</p>
+              <p>{new Date(cat.date).toDateString()}</p>
             </li>
           )}
       </ul>
-    </>
+    </div>
   );
 }
